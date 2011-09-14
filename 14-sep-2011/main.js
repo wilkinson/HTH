@@ -96,7 +96,7 @@ HTH.addButton("Conversation", function (evt) {
                 bee.postMessage("No, I just play one on television.");
                 break;
             default:
-                bee.postMessage("(echo)");
+                bee.postMessage("(rapid reply)");
             }
             HTH.puts(evt.data);
         }
