@@ -82,12 +82,12 @@ HTH.addButton("Hello", function (evt) {
 
 });
 
-HTH.addButton("Echo", function (evt) {
+HTH.addButton("Conversation", function (evt) {
     "use strict";
 
  // Here, we'll do some call-and-answer to the Web Worker.
 
-    var bee = new Worker("echo.js");
+    var bee = new Worker("conversation.js");
 
     bee.onmessage = function (evt) {
         if (evt.hasOwnProperty("data")) {
@@ -113,8 +113,23 @@ HTH.addButton("Echo", function (evt) {
 
 });
 
-//- In the morning, I will finish the basic set by showing how to terminate a
-//  worker internally or externally, how to pass arguments during the launch
-//  using query parameters, and how to use importScripts.
+HTH.addButton("Echo", function (evt) {
+    "use strict";
+
+    var bee = new Worker("echo.js?lala=true&lele=false");
+
+    bee.onmessage = function (evt) {
+        if (evt.hasOwnProperty("data")) {
+            HTH.puts(evt.data);
+        } else {
+            HTH.puts(evt);
+        }
+    };
+
+    bee.onerror = function (evt) {
+        HTH.puts(evt);
+    };
+
+});
 
 //- vim:set syntax=javascript:
