@@ -132,4 +132,23 @@ HTH.addButton("Echo", function (evt) {
 
 });
 
+HTH.addButton("Lala", function (evt) {
+    "use strict";
+
+    var bee = new Worker("lala.js");
+
+    bee.onmessage = function (evt) {
+        if (evt.hasOwnProperty("data")) {
+            HTH.puts(evt.data);
+        } else {
+            HTH.puts(evt);
+        }
+    };
+
+    bee.onerror = function (evt) {
+        HTH.puts(evt);
+    };
+
+});
+
 //- vim:set syntax=javascript:
