@@ -29,7 +29,7 @@ protection = function (x) {
 unary = function (x) {
     'use strict';
     unary = function (x) {
-        return 'Hello, ' + x;
+        return 'Hello ' + x + '!';
     };
     return unary(x);
 };
