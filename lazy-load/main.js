@@ -7,7 +7,7 @@
 //
 //                                                      ~~ (c) SRW, 05 Oct 2011
 
-var lazy, unary, variadic;
+var lazy, protection, unary, variadic;
 
 lazy = function () {
     'use strict';
@@ -15,6 +15,15 @@ lazy = function () {
         return 'Hello world!';
     };
     return lazy();
+};
+
+protection = function (x) {
+    'use strict';
+    var y = Math.random();
+    protection = function (x) {
+        return x + y;
+    };
+    return protection(x);
 };
 
 unary = function (x) {
